@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Date and Time</title>
+</head>
+
+<body>
+    <h1>Q 1</h1>
+    <h1 id="datetime"></h1>
+
+    <script>
+        function updateDateTime() {
+            var dateTimeElement = document.getElementById("datetime");
+            var currentDate = new Date();
+            var formattedDateTime = currentDate.toLocaleString();
+            dateTimeElement.textContent = formattedDateTime;
+        }
+
+        // Update date and time every second
+        setInterval(updateDateTime, 1000);
+
+        // Initial call to display date and time immediately
+        updateDateTime();
+    </script>
+    <h1>Q 2</h1>
+    <script>
+        function alertCurrentMonth() {
+            var months = [
+                "January", "February", "March", "April",
+                "May", "June", "July", "August",
+                "September", "October", "November", "December"
+            ];
+
+            var currentDate = new Date();
+            var currentMonthIndex = currentDate.getMonth();
+            var currentMonth = months[currentMonthIndex];
+
+            alert("The current month is: " + currentMonth);
+        }
+
+        // Call the function to display an alert with the current month
+        alertCurrentMonth();
+    </script>
+    <h1>Q 3</h1>
+    <script>
+        function alertCurrentDayAbbreviation() {
+            var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+            var currentDate = new Date();
+            var currentDayIndex = currentDate.getDay();
+            var currentDayAbbreviation = days[currentDayIndex];
+
+            alert("Today is: " + currentDayAbbreviation);
+        }
+
+        // Call the function to display an alert with the current day abbreviation
+        alertCurrentDayAbbreviation();
+    </script>
+    <h1>Q 4</h1>
+    <script>
+        function checkFunDay() {
+            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+            var currentDate = new Date();
+            var currentDayIndex = currentDate.getDay();
+            var currentDay = days[currentDayIndex];
+
+            if (currentDay === "Saturday" || currentDay === "Sunday") {
+                alert("It's Fun day!");
+            } else {
+                alert("It's not Fun day. It's " + currentDay);
+            }
+        }
+
+        // Call the function to check if it's Fun day and display an alert
+        checkFunDay();
+    </script>
+    <h1>Q 5</h1>
+    <script>
+        function checkDayOfMonth() {
+            var currentDate = new Date();
+            var currentDay = currentDate.getDate();
+
+            if (currentDay < 16) {
+                alert("First fifteen days of the month");
+            } else {
+                alert("Last days of the month");
+            }
+        }
+
+        // Call the function to check the day of the month and display an alert
+        checkDayOfMonth();
+    </script>
+    <h1>Q 6</h1>
+    <script>
+        // Create a new Date object
+        var myDate = new Date();
+
+        // Get the current time in milliseconds since midnight, Jan. 1, 1970
+        var millisecondsSinceEpoch = myDate.getTime();
+
+        // Convert milliseconds to minutes
+        var minutesSinceMidnight = millisecondsSinceEpoch / (1000 * 60);
+
+        // Display the result
+        alert("Minutes since midnight, Jan. 1, 1970: " + minutesSinceMidnight);
+    </script>
+    <h1>Q 7</h1>
+    <script>
+        function checkAMPM() {
+            var currentDate = new Date();
+            var currentHour = currentDate.getHours();
+
+            if (currentHour < 12) {
+                alert("It's AM");
+            } else {
+                alert("It's PM");
+            }
+        }
+
+        // Call the function to check whether it's AM or PM and display an alert
+        checkAMPM();
+    </script>
+    <h1>Q 8</h1>
+    <script>
+        // Create a Date object for the last day of the last month of 2020
+        var laterDate = new Date(2020, 11, 31);  // Months are 0-indexed, so December is represented by 11
+
+        // Display the result
+        alert("The last day of the last month of 2020 is: " + laterDate);
+    </script>
+    <h1>Q 9</h1>
+    <script>
+        // Create a Date object for the starting date of Ramadan (June 18, 2015)
+        var ramadanStartDate = new Date(2015, 5, 18); // Months are 0-indexed, so June is represented by 5
+
+        // Get the current date
+        var currentDate = new Date();
+
+        // Calculate the number of milliseconds between the two dates
+        var millisecondsDiff = currentDate - ramadanStartDate;
+
+        // Calculate the number of days by converting milliseconds to days
+        var daysSinceRamadan = millisecondsDiff / (1000 * 60 * 60 * 24);
+
+        // Display the result
+        alert("Number of days past since 1st Ramadan (June 18, 2015): " + daysSinceRamadan.toFixed(0));
+    </script>
+    <h1>Q 10</h1>
+    <script>
+        // Create a Date object for the reference date (e.g., now)
+        var referenceDate = new Date();
+
+        // Create a Date object for the beginning of 2015
+        var beginningOf2015 = new Date(2015, 0, 1, 0, 0, 0); // Months are 0-indexed, so January is represented by 0
+
+        // Calculate the difference in seconds between the two dates
+        var secondsElapsed = (referenceDate - beginningOf2015) / 1000;
+
+        // Display the result
+        alert("Seconds elapsed since the beginning of 2015: " + secondsElapsed.toFixed(0));
+    </script>
+    <h1>Q 11</h1>
+    <script>
+        // Create a Date object for the current date and time
+        var currentDate = new Date();
+
+        // Extract the hours from the current date
+        var currentHours = currentDate.getHours();
+
+        // Reset the date object one hour ahead
+        currentDate.setHours(currentHours + 1);
+
+        // Display the updated date object
+        alert("Updated Date Object: " + currentDate);
+    </script>
+    <h1>Q 12</h1>
+    <script>
+        // Create a Date object for the current date and time
+        var currentDate = new Date();
+
+        // Reset the date object to 100 years back
+        currentDate.setFullYear(currentDate.getFullYear() - 100);
+
+        // Display the updated date object
+        alert("Date Object reset to 100 years back: " + currentDate);
+    </script>
+    <h1>Q 13</h1>
+    <script>
+        // Ask the user for their age
+        var userAge = prompt("Please enter your age:");
+
+        // Convert the user's age to a number
+        userAge = parseInt(userAge);
+
+        // Calculate the birth year
+        var currentYear = new Date().getFullYear();
+        var birthYear = currentYear - userAge;
+
+        // Display the result
+        alert("Your birth year is: " + birthYear);
+    </script>
+    <h1>Q 14</h1>
+    <script>
+        // Ask the user for input
+        var customerName = prompt("Enter Customer Name:");
+        var currentMonth = prompt("Enter Current Month:");
+        var numberOfUnits = parseFloat(prompt("Enter Number of Units:"));
+        var chargesPerUnit = parseFloat(prompt("Enter Charges per Unit:"));
+        var dueDate = new Date(prompt("Enter Due Date (YYYY-MM-DD):"));
+
+        // Calculate Net Amount Payable (within Due Date)
+        var netAmount = numberOfUnits * chargesPerUnit;
+
+        // Calculate Late Payment Surcharge if the due date is exceeded
+        var currentDate = new Date();
+        var latePaymentSurcharge = 0;
+        if (currentDate > dueDate) {
+            var daysLate = Math.floor((currentDate - dueDate) / (1000 * 60 * 60 * 24));
+            // Assuming a flat surcharge rate per day, you may adjust this as needed
+            var surchargeRatePerDay = 0.1; // 10% surcharge per day
+            latePaymentSurcharge = netAmount * surchargeRatePerDay * daysLate;
+        }
+
+        // Calculate Gross Amount Payable (after Due Date)
+        var grossAmount = netAmount + latePaymentSurcharge;
+
+        // Display the result
+        alert(
+
+            "Customer Name: " + customerName +
+            "\nCurrent Month: " + currentMonth +
+            "\nNumber of Units: " + numberOfUnits +
+            "\nCharges per Unit: $" + chargesPerUnit.toFixed(2) +
+            "\nNet Amount Payable (within Due Date): $" + netAmount.toFixed(2) +
+            "\nLate Payment Surcharge: $" + latePaymentSurcharge.toFixed(2) +
+            "\nGross Amount Payable (after Due Date): $" + grossAmount.toFixed(2));
+    </script>
+</body>
+
+</html>
